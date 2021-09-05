@@ -1,0 +1,21 @@
+Enabling and using S3 Transfer Acceleration
+
+https://docs.aws.amazon.com/AmazonS3/latest/userguide/transfer-acceleration-examples.html
+
+S3 Browser is a freeware Windows client for Amazon S3 and Amazon CloudFront. Amazon S3 provides a simple web services interface that can be used to store and retrieve any amount of data, at any time, from anywhere on the web. 
+
+https://s3browser.com/download.aspx
+
+FastGlacier is a freeware Windows Client for Amazon Glacier - an extremely low-cost storage service that provides secure and durable storage for data archiving and backup.
+
+https://fastglacier.com/
+
+
+
+***************************
+
+Cloud Front
+
+Direct s3 bucket url - https://cnl-backup-1-sep.s3.eu-west-2.amazonaws.com/pp.jpg
+Cloudfront Domain Name - 
+Cloudfront enabled url - 
