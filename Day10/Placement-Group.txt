@@ -1,4 +1,5 @@
-Firstly, a Rack server, is a computer dedicated to be used as a server and designed to be installed in a framework called a rack. Each rack has its own network and power source.
+Firstly, a Rack server, is a computer dedicated to be used as a server and designed to be installed in a framework called a rack. 
+Each rack has its own network and power source.
 
 In Cluster Placement group, 
 
@@ -17,7 +18,8 @@ each logical partition within the placement group has its own set of racks. If a
 Parition Placement Group
 
 1. Each partition within a PG has its own set of racks. Each rack has its own network and power source.
-2. Good for deploying large distributed and replicated workload. There are at most 7 parititions in each AZ, but the number of instances in each partition is limited only by the account limits.
+2. Good for deploying large distributed and replicated workload. 
+There are at most 7 parititions in each AZ, but the number of instances in each partition is limited only by the account limits.
 3. Offer visibility into the partitions
 4. Partitions can be in different AZs in the same region
 
