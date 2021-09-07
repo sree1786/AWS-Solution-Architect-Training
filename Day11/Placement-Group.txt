@@ -1,0 +1,40 @@
+Firstly, a Rack server, is a computer dedicated to be used as a server and designed to be installed in a framework called a rack. 
+Each rack has its own network and power source.
+
+In Cluster Placement group, 
+
+all instances are placed within a rack. If the rack fails (hardware failure), all instances fails at the same time. 
+Hence, this is not suitable for High Availability or mission critical applications. 
+But ideal for High Performance applications, as all the instances are in very close proximity to each other.
+
+In Spread Placement group, 
+
+each instance is placed in its own distinct rack. Each rack has at most one instance. 
+A rack failure (hardware failure) will not affect more than one instance. 
+Hence, this is ideal for High Availability or mission critical applications. 
+But not really suitable for High Performance applications, as the instances are spread much further apart.
+
+In Partition Placement group, 
+
+each logical partition within the placement group has its own set of racks. 
+If a rack fails (hardware failure), it may affect multiple instances on that rack within that logical partition. 
+So, if you have replication in other partitions, then your data will be safe. 
+This placement group strikes a balance between High Performance and High Availability. 
+This will be good for Big data applications like HDFS, HBase, Cassandra, Kafka, etc.
+which needs High Performance, but must also be Fault Tolerant at the same time.
+
+Parition Placement Group
+
+1. Each partition within a PG has its own set of racks. Each rack has its own network and power source.
+2. Good for deploying large distributed and replicated workload. 
+There are at most 7 parititions in each AZ, but the number of instances in each partition is limited only by the account limits.
+3. Offer visibility into the partitions
+4. Partitions can be in different AZs in the same region
+
+
+
+Spread Placement Group
+
+1. Each instance is placed in its own distinct rack. Each rack has at most one instance
+2. Good for deploying applications that have a smaller number of instances. You can have at most 7 instances per AZ in the group
+3. The group can span multiple AZs in the same region.
