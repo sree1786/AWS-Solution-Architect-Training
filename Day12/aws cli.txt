@@ -1,0 +1,208 @@
+#!/bin/bash
+yum install httpd -y
+systemctl start httpd
+systemctl status httpd
+systemctl enable httpd
+echo "<html> <h1>Cloudnloud is in canada</h1>  </html>" > /var/www/html/index.html
+
+
+
+Launch one AWS instance with aws command tools
+
+yum install http://dl.fedoraproject.org/pub/epel/7Server/x86_64/Packages/e/epel-release-7-11.noarch.rpm -y
+yum install python-pip awscli -y
+
+
+aws ec2 describe-instances
+To make aws configure work, we need to install python pip. Then #pip install aws
+aws configure
+
+AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
+AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+Default region name [None]: us-east-2
+Default output format [None]: json
+
+
+
+
+Open the IAM console.
+
+In the navigation pane of the console, choose Users.
+
+Choose your IAM user name (not the check box).
+
+Choose the Security credentials tab and then choose Create access key.
+
+To see the new access key, choose Show. Your credentials will look something like this:
+
+    Access key ID: AKIAIOSFODNN7EXAMPLE
+
+    Secret access key: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+
+To download the key pair, choose Download .csv file. Store the keys in a secure location. 
+
+11: create keypair
+
+aws ec2 create-key-pair --key-name ashwin --output text > vijay.pem
+
+
+12. display your \keypairs
+
+aws ec2 describe-key-pairs
+
+
+13. deleting your key pair
+
+aws ec2 delete-key-pair --key-name vijay
+
+
+
+**************************************************************
+
+14. how to see what are the VPC id's are available
+
+aws ec2 describe-vpcs
+
+
+15. create security group attached to default VPC network
+
+aws ec2 create-security-group --group-name vijay-ext --description "vijay-ext" --vpc-id vpc-69359312
+
+
+16.list security groups
+
+aws ec2 describe-security-groups
+
+
+17. Delete security group
+
+aws ec2 delete-security-group --group-id sg-dcef10aa
+
+
+18. how to allow ssh traffic to all ip 
+
+aws ec2 authorize-security-group-ingress --group-id sg-be76b5c8 --protocol tcp --port 22 --cidr 0.0.0.0/0
+
+aws ec2 authorize-security-group-ingress --group-id sg-be76b5c8 --protocol tcp --port 22 --cidr 192.168.10.0/24
+
+
+19.delete the port opened rule only
+
+aws ec2 revoke-security-group-ingress --group-id sg-be76b5c8 --protocol tcp --port 22 --cidr 0.0.0.0/0
+
+20. to list all ami images
+
+aws ec2 describe-images --owners self amazon --filters "Name=root-device-type,Values=ebs"
+
+
+21. launch the instance
+
+aws ec2 run-instances --image-id ami-00dfe2c7ce89a450b --count 1 --instance-type t2.micro --key-name cnlauth --security-group-ids sg-001aa514a1a4bf841 --subnet-id subnet-89c508e2
+
+23:terminate the instance 
+
+aws ec2 terminate-instances --instance-ids i-0deb3c69be86b230e
+
+24:how to find out instance id
+
+aws ec2 describe-instances --instance-ids
+
+25:to create a glacier storage
+
+aws glacier create-vault --account-id - --vault-name myvault( Note All glacier commands require an account ID parameter. Use a hyphen to specify the current account)
+
+26:creat a bucket 
+
+aws s3 mb s3://vijaycnl1234
+
+27:delete a bicket
+
+aws s3 rb s3://bucket-name
+
+28:to remove a nonempty bucket 
+
+aws s3 rb s3://bucket-name --force
+
+29:to list out buckets
+
+ aws s3 ls
+
+30:to list out specfic buckets
+
+ aws s3 ls s3://bucket-name
+
+31:to delete specfic file in bucket
+
+aws s3 ls s3://bucket-name/path/
+
+32:create a efs storage
+aws efs create-file-system \
+--creation-token FileSystemForWalkthrough1 \
+--region us-west-2 \
+--profile adminuser 
+
+33:create a user
+
+aws iam create-user --user-name MyUser
+
+34:add a user yo group
+
+aws iam add-user-to-group --user-name MyUser --group-name MyIamGroup
+
+35:to list out the users in group
+
+ aws iam get-group --group-name MyIamGroup
+
+36:to set a intial password for a user
+
+aws iam create-login-profile --user-name MyUser --password My!User1Login8P@ssword
+
+37:create a acces key for a user
+
+aws iam create-access-key --user-name MyUser
+
+38:to delete a access key for a user
+
+aws iam delete-access-key --user-name MyUser --access-key-id AKIAI44QH8DHBEXAMPLE
+
+39:decribe efs to get file system id
+
+aws efs describe-file-systems \
+--region us-west-2 \
+--profile adminuser
+
+40:add a tag to efs
+
+aws efs create-tags \
+--file-system-id File-System-ID \
+--tags Key=Name,Value=SomeExampleNameValue \
+--region us-west-2 \
+--profile adminuser
+
+41:retrive the tag froom efs
+
+aws efs describe-tags \
+--file-system-id File-System-ID \
+--region us-west-2 \
+--profile adminuser
+
+42:for creating a mount target 
+
+ aws efs create-mount-target \
+--file-system-id file-system-id \
+--subnet-id  subnet-id \
+--security-group ID-of-the security-group-created-for-mount-target \
+--region us-west-2 \
+--profile adminuser
+
+43:to describe mount targets
+
+aws efs describe-mount-targets \
+--file-system-id file-system-id \
+--region us-west-2 \
+--profile adminuser
+
+44:mounting the efs to ec2
+
+sudo mount -t nfs -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 mount-target-ip:/  ~/efs-mount-point
+
