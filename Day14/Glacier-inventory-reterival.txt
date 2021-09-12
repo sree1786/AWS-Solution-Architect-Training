@@ -1,0 +1,15 @@
+Glacier-inventory-reterival
+
+
+aws glacier list-vaults --account-id xxxxxxxxx
+aws glacier initiate-job --vault-name backup-data --account-id xxxxxxxxxxxxxxxx --job-parameters '{"Type": "inventory-retrieval"}'
+
+in the above command you get job id
+
+aws glacier describe-job --vault-name backup-data --account-id xxxxxxxxxxxxxx --job-id shZwPzS9BGF5pFutWkloSplkCfA-hdM0lOr1FhsvgRp0wFRYxxxxLx80qycUPpfdNPfM29Z-uJe7SZ_jizt7eJNDSkqc0lyAxxxxxxxxxxxxxxxxxxxxxxx
+
+aws glacier get-job-output --vault-name backup-data --account-id 456774515540 --job-id shZwPzS9BGF5pFutWkloSplkCfA-hdM0lOr1FhsvgRp0wFRYLx80qycUPpfdNPfM29Zxxx-uJe7SZ_jizt7eJNDSkqc0lyA output.json
+
+
+
+

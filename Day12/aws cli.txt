@@ -113,7 +113,7 @@ aws glacier create-vault --account-id - --vault-name myvault( Note All glacier c
 
 26:creat a bucket 
 
-aws s3 mb s3://vijaycnl1234
+aws s3 mb s3://cnlautomation1234
 
 27:delete a bicket
 
