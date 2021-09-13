@@ -23,7 +23,7 @@ Create subnet --> create private subnet --> 10.0.2.0/24
 15.	Right click the 3rd NAT *image* -> Networking -> Disable change source/destination check.
 16.	Edit the private network routing table or **10.0.0.0/16** (Seems I have missed to configure major network) edit the routes and remove gateway of 0.0.0.0/0 and choose 3rd instance id.
 
-```yaml
+```shell
 ---
 - name: deploy nginx
   host: all
