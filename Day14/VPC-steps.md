@@ -1,6 +1,9 @@
-VPC
-	While creating if you are selecting dedicate network it costly because they configure firewall and high priority. 
-Create VPC
+# VPC
+
+While creating if you are selecting dedicate network it costly because they configure firewall and high priority. 
+
+## Create VPC
+
 1.	Services -> VPC -> Create VPC -> select default and create network
 2.	Check the Routing table you can see only default
 3.	Create internet Gateway and its detached by default
