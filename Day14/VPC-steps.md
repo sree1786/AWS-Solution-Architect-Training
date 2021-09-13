@@ -20,5 +20,13 @@ Create subnet --> create private subnet --> 10.0.2.0/24
 12.	Create 1st instance with 1st subnet see public ip will automatically enable and assign, so that instance will be in public (security group enable http, https and icmp for all the IP)
 13.	Create 2nd instance with 2nd subnet see public ip will not enable its disable by default, so that instance will be in private it’s not participating in public (Security group and enable http, https, icmp for only 10.0.1.0 network
 14.	Create 3rd instance from community AMI -> search NAT and choose 1st image, and choose 1st network which public and 10.0.1.0/24 network
-15.	Right click the 3rd NAT image -> Networking -> Disable change source/destination check.
-16.	Edit the private network routing table or 10.0.0.0/16 (Seems I have missed to configure major network) edit the routes and remove gateway of 0.0.0.0/0 and choose 3rd instance id.
+15.	Right click the 3rd NAT *image* -> Networking -> Disable change source/destination check.
+16.	Edit the private network routing table or **10.0.0.0/16** (Seems I have missed to configure major network) edit the routes and remove gateway of 0.0.0.0/0 and choose 3rd instance id.
+
+```yaml
+---
+- name: deploy nginx
+  host: all
+  tasks:
+    - name: install
+```
