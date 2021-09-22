@@ -1,0 +1,11 @@
+How to increase CPU load
+
+yum install https://dl.fedoraproject.org/pub/epel/7Server/x86_64/Packages/e/epel-release-7-13.noarch.rpm -y
+
+yum install stress -y
+
+sudo stress --cpu 80
+
+wait for 3 to 4 minutes
+
+Keep check ec2 instances dashboard
