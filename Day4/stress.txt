@@ -1,6 +1,6 @@
 How to increase CPU load
 
-yum install https://dl.fedoraproject.org/pub/epel/7Server/x86_64/Packages/e/epel-release-7-13.noarch.rpm -y
+yum install https://dl.fedoraproject.org/pub/epel/7Server/x86_64/Packages/e/epel-release-7-14.noarch.rpm -y
 
 yum install stress -y
 
