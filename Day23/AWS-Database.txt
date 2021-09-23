@@ -1,0 +1,29 @@
+Create Relational Database
+
+SQL Developer Client
+
+https://www.oracle.com/tools/downloads/sqldev-downloads.html
+
+Download Windows 64-bit with JDK 8 included 
+
+
+Oracle Database
+
+
+Oracle Database Identifier - oracleDB
+Master username - admin
+password - Cloudnloud_12345
+Endpoint - oracledb.czhol9zptbvc.us-east-2.rds.amazonaws.com
+Port - 1521
+Service Name - ORCL (in your AWS RDS console DB name = ORCL)
+
+mysql Database
+
+Download - https://dev.mysql.com/downloads/file/?id=505953
+
+
+MySql Database Identifier - mysqlDB
+Master username - admin
+password - Cloudnloud_12345
+Endpoint - mysqldb.czhol9zptbvc.us-east-2.rds.amazonaws.com
+Port - 3306
