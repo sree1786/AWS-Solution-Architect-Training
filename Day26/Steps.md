@@ -1,3 +1,6 @@
+# Configure your AWS Credentials
+aws configure
+
 # Setup of eksctl
 
 ## Installation
