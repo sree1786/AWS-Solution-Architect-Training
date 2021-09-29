@@ -105,3 +105,6 @@ After your learning and handson completed,Delete cluster by using yaml config fi
 ```bash
 eksctl delete cluster -f eks-course.yaml
 ```
+ ## Refer the eks-deletion-output image in this same folder
+
+EKS-Cluster-Deletion.PNG
