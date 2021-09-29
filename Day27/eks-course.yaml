@@ -10,4 +10,4 @@ nodeGroups:
     instanceType: t2.small
     desiredCapacity: 3
     ssh: # use existing EC2 key
-      publicKeyName: eks-course
+      publicKeyName: cnlnvirginia
