@@ -85,7 +85,7 @@ wget https://raw.githubusercontent.com/cloudnloud/AWS-Solution-Architect-Trainin
 
 ```
 docker build -t 456774515540.dkr.ecr.us-east-1.amazonaws.com/aws-ecr-nginx:1.0.0 . 
-docker run --name aws-ecr-nginx -p 80:80 --rm -d 456774515540.dkr.ecr.us-east-1.amazonaws.com/aws-ecr-nginx:1.0.0
+docker run -dit --name cloudnloud-web -p 80:80 456774515540.dkr.ecr.us-east-1.amazonaws.com/aws-ecr-nginx:1.0.0
 ```
 
 
