@@ -83,8 +83,8 @@ aws ecr create-repository --repository-name aws-ecr-nginx --region us-east-1
 
 ## Step-5: Create Docker Image locally
 ```
-wget https://raw.githubusercontent.com/stacksimplify/aws-fargate-ecs-masterclass/master/04-ECR-Elastic-Container-Registry/index.html
-wget https://raw.githubusercontent.com/stacksimplify/aws-fargate-ecs-masterclass/master/04-ECR-Elastic-Container-Registry/Dockerfile
+wget https://raw.githubusercontent.com/cloudnloud/AWS-Solution-Architect-Training/main/Day30/index.html
+wget https://raw.githubusercontent.com/cloudnloud/AWS-Solution-Architect-Training/main/Day30/Dockerfile
 ```
 
 ```
